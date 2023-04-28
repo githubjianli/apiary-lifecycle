@@ -19,7 +19,7 @@ locals {
   }
 }
 
-resource "kubernetes_deployment" "beekeeper_scheduler_apiary" {
+resource "kubernetes_deployment_v1" "beekeeper_scheduler_apiary" {
   count = var.instance_type == "k8s" ? 1 : 0
   metadata {
     name      = local.scheduler_apiary_full_name
@@ -108,7 +108,7 @@ resource "kubernetes_deployment" "beekeeper_scheduler_apiary" {
 
 }
 
-resource "kubernetes_service" "beekeeper_scheduler_apiary" {
+resource "kubernetes_service_v1" "beekeeper_scheduler_apiary" {
   count = var.instance_type == "k8s" ? 1 : 0
   metadata {
     name   = local.scheduler_apiary_full_name
