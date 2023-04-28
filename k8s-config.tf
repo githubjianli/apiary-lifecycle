@@ -4,7 +4,7 @@
  * Licensed under the Apache License, Version 2.0 (the "License");
  */
 
-resource "kubernetes_secret" "beekeeper_db_password_secret" {
+resource "kubernetes_secret_v1" "beekeeper_db_password_secret" {
   metadata {
     name      = var.k8s_db_password_secret
     namespace = var.k8s_namespace
